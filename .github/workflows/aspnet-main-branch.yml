@@ -34,5 +34,5 @@ jobs:
 
     - name: Run a multi-line script
       run: |
-          docker build -f ./src/Dockerfile -t passenger.api ./src/Build/
+          docker build -f ./src/Dockerfile -t cicdtest ./src/Build/
           docker push $DOCKER_USERNAME/cicdtest
