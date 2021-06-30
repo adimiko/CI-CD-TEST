@@ -33,8 +33,11 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
     - name: Build Docker
-      run: docker build -f ./src/Dockerfile -t cicdtest ./src/Build/
-          
+      run: docker build -f ./src/Dockerfile -t cicdtest:latest ./src/Build/
+    
+    - name: Tag Docker
+      run: docker tag cicdtest:latest ${{ secrets.DOCKERHUB_USERNAME }}/cicdtest:latest
+
     - name: Publish Docker
-      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/cicdtest
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/cicdtest:latest
           
