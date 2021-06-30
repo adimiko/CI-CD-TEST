@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
-WORKDIR /dotnetapp
+WORKDIR /app
 COPY ./bin/Docker .
 ENV ASPNETCORE_URLS http://*:5000
 ENV ASPNETCORE_ENVIRONMENT docker
-ENTRYPOINT dotnet src.dll
+ENTRYPOINT ["dotnet", "src.dll"]
