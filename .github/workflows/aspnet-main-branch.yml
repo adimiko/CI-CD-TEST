@@ -32,7 +32,9 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-    - name: Run a multi-line script
-      run: |
-          docker build -f ./src/Dockerfile -t cicdtest ./src/Build/
-          docker push $DOCKER_USERNAME/cicdtest
+    - name: Build Docker
+      run: docker build -f ./src/Dockerfile -t cicdtest ./src/Build/
+          
+    - name: Build Docker
+      run: docker push $DOCKER_USERNAME/cicdtest:lasted
+          
